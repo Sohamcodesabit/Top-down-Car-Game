@@ -1,2 +1,3 @@
-# Top-down-Car-Game
-A Topdown Car game to test for bugs using a RL based bug tester
+## Super Sprint
+
+This is the start project for the YouTube series remaking (sort of) the C64 classic Super Sprint.
