@@ -59,6 +59,10 @@ ui_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="car"
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -8,6 +8,7 @@ radius = 9.0
 height = 32.0
 
 [node name="Car" type="Area2D"]
+collision_mask = 0
 script = ExtResource("1_6tdsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
