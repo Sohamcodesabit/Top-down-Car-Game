@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://by56krnhm6fhx"]
+[gd_scene load_steps=6 format=3 uid="uid://by56krnhm6fhx"]
 
 [ext_resource type="Script" uid="uid://bbokf0udg4xuf" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
 [ext_resource type="Texture2D" uid="uid://c1m5vk3rejca7" path="res://Assets/Images/Monaco.png" id="1_fv5kj"]
 [ext_resource type="Texture2D" uid="uid://2msta3ane5h5" path="res://Assets/Images/WaterBg.png" id="1_okhpi"]
 [ext_resource type="PackedScene" uid="uid://m6m4cynd8de0" path="res://Scenes/Car/Car.tscn" id="3_0ld5s"]
+
+[sub_resource type="Curve2D" id="Curve2D_0do6f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 608, 479, -39.93, 102.85, 39.93, -102.85, 906, 525, -59.29, 100.43, 59.29, -100.43, 781, 321, 13.31, 143.99, -13.31, -143.99, 1059, 268, 59.29, -35.09, -59.29, 35.09, 758, 84, 64.13, 3.63, -64.13, -3.63, 545, 256, 95.59, 39.93, -95.59, -39.93, 403, 112, -119.79, -61.71, 119.79, 61.71, 201, 464, -136.73, -1.21, 136.73, 1.21, 426, 472, 0, 0, 0, 0, 608, 479)
+}
+point_count = 10
 
 [node name="Track" type="Node"]
 script = ExtResource("1_0do6f")
@@ -29,5 +35,8 @@ polygon = PackedVector2Array(392, 181, 341, 210, 288, 265, 261, 298, 242, 340, 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TrackCollison"]
 polygon = PackedVector2Array(540, 175, 467, 74, 416, 38, 364, 55, 319, 75, 280, 99, 243, 131, 206, 166, 138, 262, 117, 322, 112, 394, 122, 451, 142, 485, 175, 520, 250, 546, 385, 532, 502, 517, 578, 526, 662, 553, 738, 579, 803, 602, 871, 619, 906, 623, 946, 616, 984, 596, 1012, 531, 997, 475, 958, 430, 901, 390, 850, 352, 889, 357, 996, 374, 1071, 357, 1105, 323, 1119, 300, 1126, 238, 1092, 178, 1040, 136, 942, 75, 851, 39, 764, 11, 703, 34, 635, 95, 560, 178, 561, -47, 1156, -46, 1159, 676, 57, 673, 43, 103, 525, -47)
+
+[node name="TrackPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0do6f")
 
 [connection signal="area_entered" from="TrackCollison" to="." method="_on_track_collison_area_entered"]
