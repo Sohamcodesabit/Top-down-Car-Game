@@ -39,4 +39,6 @@ polygon = PackedVector2Array(540, 175, 467, 74, 416, 38, 364, 55, 319, 75, 280, 
 [node name="TrackPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_0do6f")
 
+[node name="OilContainer" type="Node" parent="."]
+
 [connection signal="area_entered" from="TrackCollison" to="." method="_on_track_collison_area_entered"]
