@@ -20,6 +20,9 @@ var _velocity: float = 0.0
 var _bounce_tween: Tween
 var _bounce_target: Vector2 = Vector2.ZERO
 
+
+var ai_throttle: float = 0.0
+var ai_steer: float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -27,8 +30,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	_throttle = Input.get_action_strength("ui_up")
-	_steer = Input.get_axis("ui_left" , "ui_right")
+	# Use standard input if no AI is overriding it
+	if ai_throttle == 0.0 and ai_steer == 0.0:
+		_throttle = Input.get_action_strength("ui_up")
+		_steer = Input.get_axis("ui_left", "ui_right")
+	else:
+		_throttle = ai_throttle
+		_steer = ai_steer
 
 
 func _physics_process(delta: float) -> void:
@@ -90,4 +98,9 @@ func bounce(dir_to_path: Vector2) -> void:
 
 func hit_boundary(dir_to_path: Vector2) -> void:
 	crash_effect.restart()
+	
+	# Tell the AI Controller it messed up!
+	if has_node("AIController2D/BugMonitor"):
+		get_node("AIController2D/BugMonitor")._report_bug("WALL_HIT", position)
+		
 	bounce(dir_to_path)

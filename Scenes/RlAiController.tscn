@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://otghk0yamhr0"]
+
+[ext_resource type="Script" uid="uid://rmscoggw2fir" path="res://addons/rl_bug_tester/nodes/RL_AI_Controller.gd" id="1_gavm2"]
+
+[node name="RL_AI_Controller" type="Node2D" groups=["agent"]]
+script = ExtResource("1_gavm2")

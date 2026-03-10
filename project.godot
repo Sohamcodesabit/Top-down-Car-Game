@@ -24,6 +24,10 @@ window/stretch/mode="canvas_items"
 naming/scene_name_casing=1
 naming/script_name_casing=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg", "res://addons/rl_bug_tester/plugin.cfg")
+
 [input]
 
 ui_left={

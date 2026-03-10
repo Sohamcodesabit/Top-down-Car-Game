@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cegn5mo8dhwra"]
+
+[ext_resource type="Script" uid="uid://d1ju0f6crcxss" path="res://addons/rl_bug_tester/nodes/BugMonitor.gd" id="1_6fw8a"]
+
+[node name="BugMonitor" type="Node2D"]
+script = ExtResource("1_6fw8a")

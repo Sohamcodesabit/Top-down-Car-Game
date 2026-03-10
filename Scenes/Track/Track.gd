@@ -21,3 +21,6 @@ func get_direction_to_path(from_pos: Vector2) -> Vector2:
 func _on_track_collison_area_entered(area: Area2D) -> void:
 	if area is Car: area.hit_boundary(get_direction_to_path(area.position))
  
+func reset_game():
+	# Reset positions, scores, and timers
+	get_tree().reload_current_scene()
