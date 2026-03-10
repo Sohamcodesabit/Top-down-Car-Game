@@ -11,7 +11,7 @@ modulate = Color(0.388235, 0.952941, 0.109804, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_plil5")
 
-[node name="DropTimer" type="Timer" parent="DebugDot"]
+[node name="DropTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="DebugDot/DropTimer" to="." method="_on_drop_timer_timeout"]
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]

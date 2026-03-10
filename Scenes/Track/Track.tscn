@@ -16,19 +16,20 @@ point_count = 10
 script = ExtResource("1_0do6f")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(617, 360)
+position = Vector2(632.2, 358)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_okhpi")
 
 [node name="TrackImage" type="Sprite2D" parent="."]
-position = Vector2(622, 324)
+position = Vector2(637.2, 322)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_fv5kj")
 
 [node name="Car" parent="." instance=ExtResource("3_0ld5s")]
-position = Vector2(716, 499)
+position = Vector2(731.2, 497)
 
 [node name="TrackCollison" type="Area2D" parent="."]
+position = Vector2(15.2, -2)
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackCollison"]
@@ -38,6 +39,7 @@ polygon = PackedVector2Array(392, 181, 341, 210, 288, 265, 261, 298, 242, 340, 2
 polygon = PackedVector2Array(540, 175, 467, 74, 416, 38, 364, 55, 319, 75, 280, 99, 243, 131, 206, 166, 138, 262, 117, 322, 112, 394, 122, 451, 142, 485, 175, 520, 250, 546, 385, 532, 502, 517, 578, 526, 662, 553, 738, 579, 803, 602, 871, 619, 906, 623, 946, 616, 984, 596, 1012, 531, 997, 475, 958, 430, 901, 390, 850, 352, 889, 357, 996, 374, 1071, 357, 1105, 323, 1119, 300, 1126, 238, 1092, 178, 1040, 136, 942, 75, 851, 39, 764, 11, 703, 34, 635, 95, 560, 178, 561, -47, 1156, -46, 1159, 676, 57, 673, 43, 103, 525, -47)
 
 [node name="TrackPath" type="Path2D" parent="."]
+position = Vector2(15.2, -2)
 curve = SubResource("Curve2D_0do6f")
 
 [node name="OilDropper" parent="TrackPath" node_paths=PackedStringArray("oil_container") instance=ExtResource("5_vfgym")]

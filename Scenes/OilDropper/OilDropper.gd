@@ -18,9 +18,12 @@ const OIL = preload("res://Scenes/Oil/Oil.tscn")
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	debug_dot.visible = debug
+	progress_ratio = randf()
+	start_timer() # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,12 +46,15 @@ func drop_oil() -> void:
 	oil_container.add_child(oil_hazard)
 	oil_hazard.global_position = Vector2(
 		global_position.x + randf_range(-drop_margin, drop_margin),
-		global_position.y +randf_range(-drop_margin, drop_margin)
+		global_position.y + randf_range(-drop_margin, drop_margin)
 	)
 	start_timer()
 
 
 
 
+
+
+
 func _on_drop_timer_timeout() -> void:
-	drop_oil()
+	drop_oil()# Replace with function body.
