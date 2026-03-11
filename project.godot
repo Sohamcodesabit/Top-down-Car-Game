@@ -15,6 +15,10 @@ run/main_scene="uid://by56krnhm6fhx"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://yyr47gbb1gym"
 
+[autoload]
+
+QAManager="*res://addons/qa_bug_tester/qa_manager.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -23,6 +27,10 @@ window/stretch/mode="canvas_items"
 
 naming/scene_name_casing=1
 naming/script_name_casing=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg", "res://addons/qa_bug_tester/plugin.cfg")
 
 [input]
 
