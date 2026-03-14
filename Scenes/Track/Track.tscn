@@ -1,16 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://by56krnhm6fhx"]
+[gd_scene load_steps=9 format=3 uid="uid://by56krnhm6fhx"]
 
 [ext_resource type="Script" uid="uid://bbokf0udg4xuf" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
 [ext_resource type="Texture2D" uid="uid://c1m5vk3rejca7" path="res://Assets/Images/Monaco.png" id="1_fv5kj"]
 [ext_resource type="Texture2D" uid="uid://2msta3ane5h5" path="res://Assets/Images/WaterBg.png" id="1_okhpi"]
 [ext_resource type="PackedScene" uid="uid://m6m4cynd8de0" path="res://Scenes/Car/Car.tscn" id="3_0ld5s"]
 [ext_resource type="PackedScene" uid="uid://8ilh1npg2ffi" path="res://Scenes/OilDropper/OilDropper.tscn" id="5_vfgym"]
+[ext_resource type="Texture2D" uid="uid://dec3bup5l0rha" path="res://Assets/Images/FinishLine.png" id="6_wtm8k"]
 
 [sub_resource type="Curve2D" id="Curve2D_0do6f"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 608, 479, -39.93, 102.85, 39.93, -102.85, 906, 525, -59.29, 100.43, 59.29, -100.43, 781, 321, 13.31, 143.99, -13.31, -143.99, 1059, 268, 59.29, -35.09, -59.29, 35.09, 758, 84, 64.13, 3.63, -64.13, -3.63, 545, 256, 95.59, 39.93, -95.59, -39.93, 403, 112, -119.79, -61.71, 119.79, 61.71, 201, 464, -136.73, -1.21, 136.73, 1.21, 426, 472, 0, 0, 0, 0, 608, 479)
 }
 point_count = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtm8k"]
+size = Vector2(127.691, 18.1757)
 
 [node name="Track" type="Node"]
 script = ExtResource("1_0do6f")
@@ -48,6 +52,27 @@ rotation = 0.153154
 oil_container = NodePath("../../OilContainer")
 drop_time_var = Vector2(2, 5)
 
+[node name="OilDropper2" parent="TrackPath" node_paths=PackedStringArray("oil_container") instance=ExtResource("5_vfgym")]
+position = Vector2(728.716, 106.748)
+rotation = 2.40029
+progress = 1361.64
+oil_container = NodePath("../../OilContainer")
+drop_time_var = Vector2(2, 5)
+
 [node name="OilContainer" type="Node" parent="."]
+
+[node name="StartLine" type="Area2D" parent="."]
+position = Vector2(564, 456)
+rotation = -1.37058
+scale = Vector2(0.92, 0.615)
+collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="StartLine"]
+texture = ExtResource("6_wtm8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartLine"]
+position = Vector2(0.532562, 0.126831)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wtm8k")
 
 [connection signal="area_entered" from="TrackCollison" to="." method="_on_track_collison_area_entered"]

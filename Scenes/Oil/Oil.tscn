@@ -11,12 +11,12 @@ collision_layer = 0
 script = ExtResource("1_phwcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(255, 145)
+position = Vector2(1.6, -0.199999)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_smbwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(254, 145)
+position = Vector2(0.599985, -0.200014)
 shape = SubResource("CircleShape2D_tlebx")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
