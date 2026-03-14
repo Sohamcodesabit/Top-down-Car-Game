@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://yyr47gbb1gym" path="res://Assets/Images/Oil.png" id="1_smbwj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlebx"]
-radius = 21.0
+radius = 15.4013
 
 [node name="Oil" type="Area2D"]
 collision_layer = 0
@@ -12,7 +12,7 @@ script = ExtResource("1_phwcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.6, -0.199999)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_smbwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://by56krnhm6fhx"]
+[gd_scene load_steps=10 format=3 uid="uid://by56krnhm6fhx"]
 
 [ext_resource type="Script" uid="uid://bbokf0udg4xuf" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
 [ext_resource type="Texture2D" uid="uid://c1m5vk3rejca7" path="res://Assets/Images/Monaco.png" id="1_fv5kj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://m6m4cynd8de0" path="res://Scenes/Car/Car.tscn" id="3_0ld5s"]
 [ext_resource type="PackedScene" uid="uid://8ilh1npg2ffi" path="res://Scenes/OilDropper/OilDropper.tscn" id="5_vfgym"]
 [ext_resource type="Texture2D" uid="uid://dec3bup5l0rha" path="res://Assets/Images/FinishLine.png" id="6_wtm8k"]
+[ext_resource type="PackedScene" uid="uid://ct71a6erffut3" path="res://Scenes/Verifiation/Verification.tscn" id="7_6d5m8"]
 
 [sub_resource type="Curve2D" id="Curve2D_0do6f"]
 _data = {
@@ -28,9 +29,6 @@ texture = ExtResource("1_okhpi")
 position = Vector2(637.2, 322)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_fv5kj")
-
-[node name="Car" parent="." instance=ExtResource("3_0ld5s")]
-position = Vector2(731.2, 497)
 
 [node name="TrackCollison" type="Area2D" parent="."]
 position = Vector2(15.2, -2)
@@ -72,7 +70,26 @@ texture = ExtResource("6_wtm8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartLine"]
 position = Vector2(0.532562, 0.126831)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wtm8k")
 
+[node name="VerificationHolder" type="Node" parent="."]
+
+[node name="Verification" parent="VerificationHolder" instance=ExtResource("7_6d5m8")]
+position = Vector2(820, 393)
+rotation = -0.520872
+
+[node name="Verification2" parent="VerificationHolder" instance=ExtResource("7_6d5m8")]
+position = Vector2(643, 196)
+rotation = 0.783474
+
+[node name="Verification3" parent="VerificationHolder" instance=ExtResource("7_6d5m8")]
+position = Vector2(207, 291)
+rotation = 0.425772
+
+[node name="CarsHolder" type="Node" parent="."]
+
+[node name="Car" parent="CarsHolder" instance=ExtResource("3_0ld5s")]
+position = Vector2(731.2, 497)
+
 [connection signal="area_entered" from="TrackCollison" to="." method="_on_track_collison_area_entered"]
+[connection signal="area_entered" from="StartLine" to="." method="_on_start_line_area_entered"]
