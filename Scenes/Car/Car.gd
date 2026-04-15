@@ -5,7 +5,8 @@ class_name Car
 enum CarState { DRIVING, BOUNCING, SLIPPING }
 
 
-
+@export var car_name: String = "Vader"
+@export var car_number: int = 0
 @export var max_speed: float = 380.0
 @export var friction: float = 300.0
 @export var acceleration: float = 150.0
@@ -28,6 +29,7 @@ var _slip_tween: Tween
 var _state: CarState = CarState.DRIVING
 var _verifications_count: int = 0
 var _verifications_passed: Array[int] = []
+var _lap_time: float = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,7 +43,8 @@ func _setup(vc: int) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	_lap_time += delta
 	_throttle = Input.get_action_strength("ui_up")
 	_steer = Input.get_axis("ui_left" , "ui_right")
 
@@ -167,9 +170,11 @@ func hit_oil() -> void:
 
 func lap_completed() -> void:
 	if _verifications_count == _verifications_passed.size():
-		print("lap completed")
+		var lcd: LapCompleteData = LapCompleteData.new(self, _lap_time)
+		print("lap_completed %s" % lcd)
+		EventHub.emit_on_lap_completed(lcd)
 	_verifications_passed.clear()
-
+	_lap_time = 0.0
 
 
 

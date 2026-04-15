@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by56krnhm6fhx"]
+[gd_scene load_steps=11 format=3 uid="uid://by56krnhm6fhx"]
 
 [ext_resource type="Script" uid="uid://bbokf0udg4xuf" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
 [ext_resource type="Texture2D" uid="uid://c1m5vk3rejca7" path="res://Assets/Images/Monaco.png" id="1_fv5kj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8ilh1npg2ffi" path="res://Scenes/OilDropper/OilDropper.tscn" id="5_vfgym"]
 [ext_resource type="Texture2D" uid="uid://dec3bup5l0rha" path="res://Assets/Images/FinishLine.png" id="6_wtm8k"]
 [ext_resource type="PackedScene" uid="uid://ct71a6erffut3" path="res://Scenes/Verifiation/Verification.tscn" id="7_6d5m8"]
+[ext_resource type="PackedScene" uid="uid://6lcy8l56pgdh" path="res://Scenes/RaceController/RaceController.tscn" id="8_pxc04"]
 
 [sub_resource type="Curve2D" id="Curve2D_0do6f"]
 _data = {
@@ -90,6 +91,8 @@ rotation = 0.425772
 
 [node name="Car" parent="CarsHolder" instance=ExtResource("3_0ld5s")]
 position = Vector2(731.2, 497)
+
+[node name="RaceController" parent="." instance=ExtResource("8_pxc04")]
 
 [connection signal="area_entered" from="TrackCollison" to="." method="_on_track_collison_area_entered"]
 [connection signal="area_entered" from="StartLine" to="." method="_on_start_line_area_entered"]

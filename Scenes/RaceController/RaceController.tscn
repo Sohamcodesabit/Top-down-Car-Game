@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6lcy8l56pgdh"]
+
+[ext_resource type="Script" uid="uid://bkomwpg8ig44g" path="res://Scenes/RaceController/RaceController.gd" id="1_i2yoe"]
+
+[node name="RaceController" type="Node"]
+script = ExtResource("1_i2yoe")
